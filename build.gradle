@@ -2,8 +2,10 @@ group 'com.mudryk'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply from: 'dependencies.gradle'
+apply from: 'jooq.gradle'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -11,4 +13,9 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile libraries.mysql
+    compile libraries.jooq
+    compile libraries.jooqMeta
+    compile libraries.jooqCodegen
 }

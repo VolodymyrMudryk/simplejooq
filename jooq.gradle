@@ -1,0 +1,46 @@
+import org.jooq.util.GenerationTool
+import org.jooq.util.jaxb.Configuration
+
+import javax.xml.bind.JAXB
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath libraries.mysql
+        classpath libraries.jooqCodegen
+    }
+}
+
+task generateJooq << {
+    def writer = new StringWriter()
+    def xml = new groovy.xml.MarkupBuilder(writer)
+            .configuration('xmlns': 'http://www.jooq.org/xsd/jooq-codegen-3.8.0.xsd') {
+        jdbc() {
+            driver('com.mysql.jdbc.Driver')
+            url('jdbc:mysql://localhost:3306/simple_jooq')
+            user('root')
+            password('root')
+        }
+        generator() {
+            database() {
+                inputSchema 'simple_jooq'
+                includes 'account|user'
+            }
+
+            generate([:]) {
+                pojos false
+                daos false
+            }
+            target() {
+                packageName('com.mudryk.simplejooq.jooq.generated')
+                directory('src/main/java')
+            }
+        }
+    }
+
+    GenerationTool.generate(
+            JAXB.unmarshal(new StringReader(writer.toString()), Configuration.class)
+    )
+}

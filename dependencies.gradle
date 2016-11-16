@@ -1,0 +1,9 @@
+project.ext.set("libraries", "")
+ext.jooq_version = "3.8.5";
+
+project.libraries = [
+        mysql      : 'mysql:mysql-connector-java:5.1.37',
+        jooq       : "org.jooq:jooq:$jooq_version",
+        jooqMeta   : "org.jooq:jooq-meta:$jooq_version",
+        jooqCodegen: "org.jooq:jooq-codegen:$jooq_version"
+]

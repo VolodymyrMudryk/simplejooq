@@ -12,10 +12,26 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-
     compile libraries.mysql
+
     compile libraries.jooq
     compile libraries.jooqMeta
     compile libraries.jooqCodegen
+
+    compile libraries.spring_core
+    compile libraries.spring_beans
+    compile libraries.spring_context
+    compile libraries.spring_context_support
+    compile libraries.springWeb
+    compile libraries.springJDBC
+    compile libraries.springTransaction
+
+    compile libraries.jodaTime
+    compile libraries.guava
+    compile libraries.slf4j
+    compile libraries.tomcatJdbc
+
+    testCompile libraries.junit
+    testCompile libraries.springTest
+    testCompile libraries.hamcrest
 }

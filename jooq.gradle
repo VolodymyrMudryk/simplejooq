@@ -30,7 +30,7 @@ task generateJooq << {
             }
 
             generate([:]) {
-                pojos false
+                immutablePojos false
                 daos false
             }
             target() {

@@ -41,6 +41,12 @@ public abstract class BaseRepository<E extends Entity<K>, K extends Serializable
         return storeRecord(entity, record);
     }
 
+    public List<E> create(Iterable<E> entities) {
+        return stream(entities.spliterator(), false)
+                .map(this::create)
+                .collect(Collectors.toList());
+    }
+
     public E update(E entity) {
         R record = fetchRecord(entity.getId());
         return storeRecord(entity, record);

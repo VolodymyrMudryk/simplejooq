@@ -18,10 +18,10 @@ public class MainConfiguration {
     @Bean
     public DataSource dataSource() {
         DataSource dataSource = new DataSource();
-        dataSource.setDriverClassName("");
-        dataSource.setUrl("");
-        dataSource.setUsername("");
-        dataSource.setPassword("");
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/simple_jooq?createDatabaseIfNotExist=true");
+        dataSource.setUsername("root");
+        dataSource.setPassword("root");
         dataSource.setDefaultAutoCommit(true);
         dataSource.setValidationQuery("");
         dataSource.setInitialSize(5);

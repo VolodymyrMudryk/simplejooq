@@ -3,9 +3,9 @@ ext.jooq_version = "3.8.5";
 ext.spring_version = "4.3.4.RELEASE";
 
 project.libraries = [
-        junit                 : 'junit:junit:4.11',
+        junit                 : 'junit:junit:4.12',
 
-        mysql                 : 'mysql:mysql-connector-java:5.1.37',
+        mysql                 : 'mysql:mysql-connector-java:6.0.5',
 
         jooq                  : "org.jooq:jooq:$jooq_version",
         jooqMeta              : "org.jooq:jooq-meta:$jooq_version",
@@ -20,9 +20,9 @@ project.libraries = [
         springJDBC            : "org.springframework:spring-jdbc:$spring_version",
         springTransaction     : "org.springframework:spring-tx:$spring_version",
 
-        jodaTime              : 'joda-time:joda-time:2.9.1',
+        jodaTime              : 'joda-time:joda-time:2.9.6',
         hamcrest              : 'org.hamcrest:hamcrest-all:1.3',
         guava                 : 'com.google.guava:guava:20.0',
-        slf4j                 : 'org.slf4j:slf4j-api:1.7.13',
+        slf4j                 : 'org.slf4j:slf4j-api:1.7.21',
         tomcatJdbc            : 'org.apache.tomcat:tomcat-jdbc:8.5.8'
 ]

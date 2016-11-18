@@ -1,7 +1,6 @@
 package com.mudryk.simplejooq.datalayer.dataaccesscomponent.generators;
 
 import com.mudryk.simplejooq.businesslayer.businessentities.User;
-import org.joda.time.LocalDateTime;
 
 import java.util.UUID;
 
@@ -12,6 +11,7 @@ import java.util.UUID;
 public class UserGenerator extends BaseGenerator {
 
     public static User generate() {
-        return new User(randomPositiveLong(), UUID.randomUUID().toString(), new LocalDateTime());
+        return new User(randomPositiveLong(), UUID.randomUUID().toString(),
+                LOCAL_DATE_FORMATTER.parseLocalDateTime("2014-12-06 12:02:00.000"));
     }
 }

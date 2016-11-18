@@ -1,5 +1,8 @@
 package com.mudryk.simplejooq.datalayer.dataaccesscomponent.generators;
 
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import java.util.Random;
 
 /**
@@ -8,9 +11,11 @@ import java.util.Random;
  */
 public class BaseGenerator {
 
+    protected static final DateTimeFormatter LOCAL_DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd hh:mm:ss.sss");
+
     protected static final Random random = new Random();
 
-    protected static long randomPositiveLong() {
+    public static long randomPositiveLong() {
         return Math.abs(random.nextLong());
     }
 }

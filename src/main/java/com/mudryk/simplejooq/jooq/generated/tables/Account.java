@@ -36,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Account extends TableImpl<AccountRecord> {
 
-    private static final long serialVersionUID = -1669158889;
+    private static final long serialVersionUID = 1369712093;
 
     /**
      * The reference instance of <code>simple_jooq.account</code>
@@ -70,11 +70,6 @@ public class Account extends TableImpl<AccountRecord> {
      * The column <code>simple_jooq.account.invalid</code>.
      */
     public final TableField<AccountRecord, Byte> INVALID = createField("invalid", org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
-
-    /**
-     * The column <code>simple_jooq.account.name</code>.
-     */
-    public final TableField<AccountRecord, String> NAME = createField("name", org.jooq.impl.SQLDataType.VARCHAR.length(255), this, "");
 
     /**
      * Create a <code>simple_jooq.account</code> table reference

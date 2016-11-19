@@ -36,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Account extends TableImpl<AccountRecord> {
 
-    private static final long serialVersionUID = 1369712093;
+    private static final long serialVersionUID = -1707070883;
 
     /**
      * The reference instance of <code>simple_jooq.account</code>
@@ -57,9 +57,9 @@ public class Account extends TableImpl<AccountRecord> {
     public final TableField<AccountRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>simple_jooq.account.client_id</code>.
+     * The column <code>simple_jooq.account.user_id</code>.
      */
-    public final TableField<AccountRecord, Long> CLIENT_ID = createField("client_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
+    public final TableField<AccountRecord, Long> USER_ID = createField("user_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
      * The column <code>simple_jooq.account.create_date</code>.

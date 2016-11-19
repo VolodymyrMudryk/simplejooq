@@ -30,7 +30,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AccountRecord extends UpdatableRecordImpl<AccountRecord> implements Record4<Long, Long, Timestamp, Byte> {
 
-    private static final long serialVersionUID = -1587076069;
+    private static final long serialVersionUID = 1942240923;
 
     /**
      * Setter for <code>simple_jooq.account.id</code>.
@@ -47,16 +47,16 @@ public class AccountRecord extends UpdatableRecordImpl<AccountRecord> implements
     }
 
     /**
-     * Setter for <code>simple_jooq.account.client_id</code>.
+     * Setter for <code>simple_jooq.account.user_id</code>.
      */
-    public void setClientId(Long value) {
+    public void setUserId(Long value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>simple_jooq.account.client_id</code>.
+     * Getter for <code>simple_jooq.account.user_id</code>.
      */
-    public Long getClientId() {
+    public Long getUserId() {
         return (Long) get(1);
     }
 
@@ -133,7 +133,7 @@ public class AccountRecord extends UpdatableRecordImpl<AccountRecord> implements
      */
     @Override
     public Field<Long> field2() {
-        return Account.ACCOUNT.CLIENT_ID;
+        return Account.ACCOUNT.USER_ID;
     }
 
     /**
@@ -165,7 +165,7 @@ public class AccountRecord extends UpdatableRecordImpl<AccountRecord> implements
      */
     @Override
     public Long value2() {
-        return getClientId();
+        return getUserId();
     }
 
     /**
@@ -198,7 +198,7 @@ public class AccountRecord extends UpdatableRecordImpl<AccountRecord> implements
      */
     @Override
     public AccountRecord value2(Long value) {
-        setClientId(value);
+        setUserId(value);
         return this;
     }
 
@@ -246,11 +246,11 @@ public class AccountRecord extends UpdatableRecordImpl<AccountRecord> implements
     /**
      * Create a detached, initialised AccountRecord
      */
-    public AccountRecord(Long id, Long clientId, Timestamp createDate, Byte invalid) {
+    public AccountRecord(Long id, Long userId, Timestamp createDate, Byte invalid) {
         super(Account.ACCOUNT);
 
         set(0, id);
-        set(1, clientId);
+        set(1, userId);
         set(2, createDate);
         set(3, invalid);
     }

@@ -3,6 +3,7 @@ package com.mudryk.simplejooq.configuration;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.sql.Connection;
@@ -23,7 +24,7 @@ public class MainConfiguration {
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         dataSource.setDefaultAutoCommit(true);
-        dataSource.setValidationQuery("");
+        dataSource.setValidationQuery("SELECT 1 FROM DUAL");
         dataSource.setInitialSize(5);
         dataSource.setMaxIdle(5);
         dataSource.setMaxActive(30);
@@ -33,5 +34,10 @@ public class MainConfiguration {
         dataSource.setDefaultReadOnly(false);
         dataSource.setDefaultTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
         return dataSource;
+    }
+
+    @Bean
+    public DataSourceTransactionManager txManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
     }
 }

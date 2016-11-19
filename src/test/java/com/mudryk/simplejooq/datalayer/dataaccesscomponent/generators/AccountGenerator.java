@@ -9,8 +9,12 @@ import com.mudryk.simplejooq.businesslayer.businessentities.Account;
 public class AccountGenerator extends BaseGenerator {
 
     public static Account generate() {
+        return generate(random.nextBoolean());
+    }
+
+    public static Account generate(boolean invalid) {
         return new Account(randomPositiveLong(), randomPositiveLong(),
                 LOCAL_DATE_FORMATTER.parseLocalDateTime("2014-12-06 12:02:00.000"),
-                random.nextBoolean());
+                invalid);
     }
 }

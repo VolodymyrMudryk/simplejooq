@@ -27,7 +27,7 @@ public class AccountRecordConverter implements RecordConverter<Account, AccountR
         requireNonNull(entity);
         requireNonNull(record);
         record.setId(entity.getId());
-        record.setClientId(entity.getClientId());
+        record.setUserId(entity.getUserId());
         record.setCreateDate(DateUtils.jodaLocalDateTime2timestamp(entity.getCreateDate()));
         record.setInvalid(Boolean2ByteConverter.bool2byte(entity.isInvalid()));
     }
@@ -36,7 +36,7 @@ public class AccountRecordConverter implements RecordConverter<Account, AccountR
     public Account record2entity(AccountRecord record) {
         requireNonNull(record);
         return new Account(record.getId(),
-                record.getClientId(),
+                record.getUserId(),
                 DateUtils.timestamp2jodaLocalDateTime(record.getCreateDate()),
                 Boolean2ByteConverter.byte2bool(record.getInvalid()));
     }

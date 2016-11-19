@@ -39,7 +39,7 @@ public class JooqConfiguration {
     @Bean
     public Settings jooqSettings() {
         Settings settings = new Settings();
-        settings.setRenderSchema(true);
+        settings.setRenderSchema(false);
         return settings;
     }
 }

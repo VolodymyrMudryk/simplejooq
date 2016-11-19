@@ -5,7 +5,7 @@ ext.spring_version = "4.3.4.RELEASE";
 project.libraries = [
         junit                 : 'junit:junit:4.12',
 
-        mysql                 : 'mysql:mysql-connector-java:6.0.5',
+        mysql                 : 'mysql:mysql-connector-java:5.1.37',
 
         jooq                  : "org.jooq:jooq:$jooq_version",
         jooqMeta              : "org.jooq:jooq-meta:$jooq_version",

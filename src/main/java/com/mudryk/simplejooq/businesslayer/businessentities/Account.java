@@ -9,13 +9,13 @@ import org.joda.time.LocalDateTime;
 public class Account implements Entity<Long> {
 
     private final long id;
-    private final long clientId;
+    private final long userId;
     private final LocalDateTime createDate;
     private final boolean invalid;
 
-    public Account(long id, long clientId, LocalDateTime createDate, boolean invalid) {
+    public Account(long id, long userId, LocalDateTime createDate, boolean invalid) {
         this.id = id;
-        this.clientId = clientId;
+        this.userId = userId;
         this.createDate = createDate;
         this.invalid = invalid;
     }
@@ -25,8 +25,8 @@ public class Account implements Entity<Long> {
         return id;
     }
 
-    public long getClientId() {
-        return clientId;
+    public long getUserId() {
+        return userId;
     }
 
     public LocalDateTime getCreateDate() {
@@ -45,7 +45,7 @@ public class Account implements Entity<Long> {
         Account account = (Account) o;
 
         if (id != account.id) return false;
-        if (clientId != account.clientId) return false;
+        if (userId != account.userId) return false;
         if (invalid != account.invalid) return false;
         return createDate != null ? createDate.equals(account.createDate) : account.createDate == null;
 
@@ -54,7 +54,7 @@ public class Account implements Entity<Long> {
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (int) (clientId ^ (clientId >>> 32));
+        result = 31 * result + (int) (userId ^ (userId >>> 32));
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (invalid ? 1 : 0);
         return result;
@@ -64,7 +64,7 @@ public class Account implements Entity<Long> {
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", clientId=" + clientId +
+                ", userId=" + userId +
                 ", createDate=" + createDate +
                 ", invalid=" + invalid +
                 '}';

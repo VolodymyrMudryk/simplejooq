@@ -4,9 +4,7 @@ import com.google.common.collect.Lists;
 import com.mudryk.simplejooq.businesslayer.businessentities.Account;
 import com.mudryk.simplejooq.datalayer.dataaccesscomponent.generators.AccountGenerator;
 import com.mudryk.simplejooq.datalayer.dataaccesscomponent.generators.BaseGenerator;
-import com.mudryk.simplejooq.jooq.generated.tables.daos.AccountDao;
 import com.mudryk.simplejooq.jooq.generated.tables.records.AccountRecord;
-import org.jooq.DSLContext;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,8 +19,6 @@ public class AccountRepositoryTest extends JooqBaseRepositoryTest<Account, Long,
 
     @Autowired
     private AccountRepository accountRepository;
-    @Autowired
-    private DSLContext dslContext;
 
     @Override
     protected BaseRepository<Account, Long, AccountRecord> getRepository() {
@@ -50,8 +46,5 @@ public class AccountRepositoryTest extends JooqBaseRepositoryTest<Account, Long,
 
     @Test
     public void testNewDao() {
-        Account account = accountRepository.create(AccountGenerator.generate());
-        com.mudryk.simplejooq.jooq.generated.tables.pojos.Account fetchedAccount = new AccountDao(dslContext.configuration()).fetchOneById(account.getId());
-        int u = 1;
     }
 }

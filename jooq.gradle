@@ -32,6 +32,7 @@ task generateJooq << {
             generate([:]) {
                 immutablePojos false
                 daos false
+                validationAnnotations false
             }
             target() {
                 packageName('com.mudryk.simplejooq.jooq.generated')

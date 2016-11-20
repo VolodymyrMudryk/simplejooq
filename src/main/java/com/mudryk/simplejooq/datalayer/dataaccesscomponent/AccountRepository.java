@@ -46,5 +46,22 @@ public class AccountRepository extends BaseRepository<Account, Long, AccountReco
                 .stream()
                 .map(recordConverter::record2entity)
                 .collect(toList());
+        //join
+    }
+
+    public void insertNewAccount(Account account) {
+        dslContext
+                .insertInto(ACCOUNT, ACCOUNT.USER_ID, ACCOUNT.INVALID)
+                .values(account.getUserId(), Boolean2ByteConverter.bool2byte(account.isInvalid()))
+                .execute();
+    }
+
+    public void updateNameByAccountIdAndUserId(String name, long accountId, long userId) {
+//        dslContext
+//                .update(ACCOUNT)
+//                .set(ACCOUNT.NAME, name)
+//                .where(ACCOUNT.ID.eq(accountId).and(ACCOUNT.USER_ID.eq(userId)))
+//                .execute();
+        //on duplicate key update
     }
 }

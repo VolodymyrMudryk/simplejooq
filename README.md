@@ -1,3 +1,5 @@
+![](http://www.jooq.org/img/jooq-logo-black.png)
+
 # simplejooq
 Gradle projects with base jOOQ operations
 
